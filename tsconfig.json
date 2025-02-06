@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "module": "NodeNext",
+    "outDir": "./build",
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
