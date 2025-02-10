@@ -11,8 +11,18 @@ describe("salary_calculator", () => {
     const db = inMemoryDatabase();
 
     const insert = fixtureInserter(db);
-    insert(employeeFixture({ salary: 100_000 }));
-    insert(employeeFixture({ salary: 200_000 }));
+    const {
+      department: { company },
+    } = insert(employeeFixture({ salary: 100_000 }));
+    insert(
+      employeeFixture({
+        salary: 200_000,
+        department: {
+          name: "R&D",
+          company,
+        },
+      })
+    );
 
     const averageSalary = calculateAverageSalary(db);
     equal(averageSalary, 150_000);
